@@ -10,7 +10,7 @@ import SwiftData
 
 class SwiftBitesModelContainer {
     static func create() -> ModelContainer {
-        let schemas = Schema()
+        let schemas = Schema([CategoryModel.self, IngredientModel.self, RecipeIngredientModel.self, RecipeModel.self])
         let configuration = ModelConfiguration()
         return try! ModelContainer(for: schemas, configurations: configuration)
     }
