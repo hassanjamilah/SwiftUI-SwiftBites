@@ -143,4 +143,14 @@ extension SwiftBitesModelContainer {
             print("Failed to update recipe")
         }
     }
+    
+    static func fetchRecipes(context: ModelContext) -> [RecipeModel] {
+        let desciptor = FetchDescriptor<RecipeModel>()
+        do {
+            let recipes = try context.fetch(desciptor)
+            return recipes
+        } catch {
+            return []
+        }
+    }
 }
