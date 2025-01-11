@@ -13,8 +13,10 @@ final class IngredientModel: Identifiable, Hashable {
     let id: UUID
     var name: String
     
-    init(id: UUID, name: String) {
-        self.id = id
+    init(name: String) {
+        self.id = UUID()
         self.name = name
     }
+    
+   
 }

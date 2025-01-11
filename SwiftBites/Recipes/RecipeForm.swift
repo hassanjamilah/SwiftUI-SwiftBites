@@ -5,7 +5,7 @@ import Foundation
 struct RecipeForm: View {
   enum Mode: Hashable {
     case add
-    case edit(MockRecipe)
+    case edit(RecipeModel)
   }
 
   var mode: Mode
@@ -41,8 +41,8 @@ struct RecipeForm: View {
   @State private var serving: Int
   @State private var time: Int
   @State private var instructions: String
-  @State private var categoryId: MockCategory.ID?
-  @State private var ingredients: [MockRecipeIngredient]
+  @State private var categoryId: CategoryModel.ID?
+  @State private var ingredients: [RecipeIngredientModel]
   @State private var imageItem: PhotosPickerItem?
   @State private var imageData: Data?
   @State private var isIngredientsPickerPresented =  false
@@ -87,7 +87,7 @@ struct RecipeForm: View {
 
   private func ingredientPicker() -> some View {
     IngredientsView { selectedIngredient in
-      let recipeIngredient = MockRecipeIngredient(ingredient: selectedIngredient, quantity: "")
+      let recipeIngredient = RecipeIngredientModel(ingredient: selectedIngredient, quantity: "")
       ingredients.append(recipeIngredient)
     }
   }
@@ -156,9 +156,9 @@ struct RecipeForm: View {
   private var categorySection: some View {
     Section {
       Picker("Category", selection: $categoryId) {
-        Text("None").tag(nil as MockCategory.ID?)
+        Text("None").tag(nil as CategoryModel.ID?)
         ForEach(storage.categories) { category in
-          Text(category.name).tag(category.id as MockCategory.ID?)
+          Text(category.name).tag(category.id as CategoryModel.ID?)
         }
       }
     }
@@ -253,7 +253,7 @@ struct RecipeForm: View {
 
   // MARK: - Data
 
-  func delete(recipe: MockRecipe) {
+  func delete(recipe: RecipeModel) {
     guard case .edit(let recipe) = mode else {
       fatalError("Delete unavailable in add mode")
     }
@@ -273,28 +273,30 @@ struct RecipeForm: View {
     do {
       switch mode {
       case .add:
-        try storage.addRecipe(
-          name: name,
-          summary: summary,
-          category: category,
-          serving: serving,
-          time: time,
-          ingredients: ingredients,
-          instructions: instructions,
-          imageData: imageData
-        )
+          print("")
+//        try storage.addRecipe(
+//          name: name,
+//          summary: summary,
+//          category: category,
+//          serving: serving,
+//          time: time,
+//          ingredients: ingredients,
+//          instructions: instructions,
+//          imageData: imageData
+//        )
       case .edit(let recipe):
-        try storage.updateRecipe(
-          id: recipe.id,
-          name: name,
-          summary: summary,
-          category: category,
-          serving: serving,
-          time: time,
-          ingredients: ingredients,
-          instructions: instructions,
-          imageData: imageData
-        )
+          print("")
+//        try storage.updateRecipe(
+//          id: recipe.id,
+//          name: name,
+//          summary: summary,
+//          category: category,
+//          serving: serving,
+//          time: time,
+//          ingredients: ingredients,
+//          instructions: instructions,
+//          imageData: imageData
+//        )
       }
       dismiss()
     } catch {

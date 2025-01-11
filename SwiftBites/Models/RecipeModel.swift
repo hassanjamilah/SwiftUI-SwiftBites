@@ -16,7 +16,7 @@ final class RecipeModel: Identifiable, Hashable {
     var summary: String
     
     @Relationship(deleteRule: .nullify, inverse: \CategoryModel.recipes)
-    var category: CategoryModel
+    var category: CategoryModel?
     
     var serving: Int
     var time: Int
@@ -27,8 +27,8 @@ final class RecipeModel: Identifiable, Hashable {
     var instructions: String
     var imageData: Data? = nil
     
-    init(id: UUID, name: String, summary: String, category: CategoryModel, serving: Int, time: Int, ingredients: [RecipeIngredientModel], instructions: String, imageData: Data? = nil) {
-        self.id = id
+    init(name: String, summary: String, category: CategoryModel, serving: Int, time: Int, ingredients: [RecipeIngredientModel], instructions: String, imageData: Data? = nil) {
+        self.id = UUID()
         self.name = name
         self.summary = summary
         self.category = category

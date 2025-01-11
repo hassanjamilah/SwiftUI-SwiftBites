@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct IngredientsView: View {
-  typealias Selection = (MockIngredient) -> Void
+  typealias Selection = (IngredientModel) -> Void
 
   let selection: Selection?
 
@@ -74,7 +74,7 @@ struct IngredientsView: View {
     .listRowSeparator(.hidden)
   }
 
-  private func list(for ingredients: [MockIngredient]) -> some View {
+  private func list(for ingredients: [IngredientModel]) -> some View {
     List {
       if ingredients.isEmpty {
         noResults
@@ -94,7 +94,7 @@ struct IngredientsView: View {
   }
 
   @ViewBuilder
-  private func row(for ingredient: MockIngredient) -> some View {
+  private func row(for ingredient: IngredientModel) -> some View {
     if let selection {
       Button(
         action: {
@@ -112,14 +112,14 @@ struct IngredientsView: View {
     }
   }
 
-  private func title(for ingredient: MockIngredient) -> some View {
+  private func title(for ingredient: IngredientModel) -> some View {
     Text(ingredient.name)
       .font(.title3)
   }
 
   // MARK: - Data
 
-  private func delete(ingredient: MockIngredient) {
+  private func delete(ingredient: IngredientModel) {
     storage.deleteIngredient(id: ingredient.id)
   }
 }

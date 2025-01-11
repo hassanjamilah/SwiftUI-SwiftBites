@@ -22,7 +22,8 @@ struct ContentView: View {
         }
     }
     .onAppear {
-      storage.load()
+      //storage.load()
+        //TODO: Load the data from database
     }
   }
 }

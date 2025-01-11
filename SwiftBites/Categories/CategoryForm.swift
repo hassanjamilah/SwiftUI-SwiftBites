@@ -3,7 +3,7 @@ import SwiftUI
 struct CategoryForm: View {
   enum Mode: Hashable {
     case add
-    case edit(MockCategory)
+    case edit(CategoryModel)
   }
 
   var mode: Mode
@@ -67,22 +67,22 @@ struct CategoryForm: View {
 
   // MARK: - Data
 
-  private func delete(category: MockCategory) {
-    storage.deleteCategory(id: category.id)
-    dismiss()
+  private func delete(category: CategoryModel) {
+//    storage.deleteCategory(id: category.id)
+//    dismiss()
   }
 
   private func save() {
-    do {
-      switch mode {
-      case .add:
-        try storage.addCategory(name: name)
-      case .edit(let category):
-        try storage.updateCategory(id: category.id, name: name)
-      }
-      dismiss()
-    } catch {
-      self.error = error
-    }
+//    do {
+//      switch mode {
+//      case .add:
+//        try storage.addCategory(name: name)
+//      case .edit(let category):
+//        try storage.updateCategory(id: category.id, name: name)
+//      }
+//      dismiss()
+//    } catch {
+//      self.error = error
+//    }
   }
 }

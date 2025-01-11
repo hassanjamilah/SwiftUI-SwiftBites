@@ -3,7 +3,7 @@ import SwiftUI
 struct RecipesView: View {
   @Environment(\.storage) private var storage
   @State private var query = ""
-  @State private var sortOrder = SortDescriptor(\MockRecipe.name)
+  @State private var sortOrder = SortDescriptor(\RecipeModel.name)
 
   // MARK: - Body
 
@@ -35,19 +35,19 @@ struct RecipesView: View {
       Menu("Sort", systemImage: "arrow.up.arrow.down") {
         Picker("Sort", selection: $sortOrder) {
           Text("Name")
-            .tag(SortDescriptor(\MockRecipe.name))
+            .tag(SortDescriptor(\RecipeModel.name))
 
           Text("Serving (low to high)")
-            .tag(SortDescriptor(\MockRecipe.serving, order: .forward))
+            .tag(SortDescriptor(\RecipeModel.serving, order: .forward))
 
           Text("Serving (high to low)")
-            .tag(SortDescriptor(\MockRecipe.serving, order: .reverse))
+            .tag(SortDescriptor(\RecipeModel.serving, order: .reverse))
 
           Text("Time (short to long)")
-            .tag(SortDescriptor(\MockRecipe.time, order: .forward))
+            .tag(SortDescriptor(\RecipeModel.time, order: .forward))
 
           Text("Time (long to short)")
-            .tag(SortDescriptor(\MockRecipe.time, order: .reverse))
+            .tag(SortDescriptor(\RecipeModel.time, order: .reverse))
         }
       }
       .pickerStyle(.inline)
@@ -93,7 +93,7 @@ struct RecipesView: View {
     )
   }
 
-  private func list(for recipes: [MockRecipe]) -> some View {
+  private func list(for recipes: [RecipeModel]) -> some View {
     ScrollView(.vertical) {
       if recipes.isEmpty {
         noResults

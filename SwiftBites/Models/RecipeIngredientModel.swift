@@ -14,9 +14,11 @@ final class RecipeIngredientModel: Identifiable, Hashable {
     var ingredient: IngredientModel
     var quantity: String
     
-    init(id: UUID, ingredient: IngredientModel, quantity: String) {
-        self.id = id
+    init(ingredient: IngredientModel, quantity: String) {
+        self.id = UUID()
         self.ingredient = ingredient
         self.quantity = quantity
     }
+    
+    
 }

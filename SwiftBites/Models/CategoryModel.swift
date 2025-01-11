@@ -15,9 +15,11 @@ final class CategoryModel: Identifiable, Hashable {
     @Relationship
     var recipes: [RecipeModel]
     
-    init(id: UUID, name: String, recipes: [RecipeModel]) {
-        self.id = id
+    init(name: String, recipes: [RecipeModel] = []) {
+        self.id = UUID()
         self.name = name
         self.recipes = recipes
     }
+    
+    
 }

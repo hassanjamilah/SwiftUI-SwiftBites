@@ -20,5 +20,99 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3C911FF-C157-42DA-8C05-67F2D2D8E89B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftBites/SwiftBitesModelContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "isEmpty(context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9893BB9A-366F-4C4E-9A28-E733EB4B41F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftBites/SwiftBitesModelContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "insertInitialData(context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9893BB9A-366F-4C4E-9A28-E733EB4B41F8 - 2b43ab85b4bd83eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static SwiftBites.SwiftBitesModelContainer.insertInitialData(context: SwiftData.ModelContext) -&gt; ()"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/SwiftBitesModelContainer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42">
+               </Location>
+               <Location
+                  uuid = "9893BB9A-366F-4C4E-9A28-E733EB4B41F8 - ceef29dd89e9a60e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftBites.IngredientModel) -&gt; () in static SwiftBites.SwiftBitesModelContainer.insertInitialData(context: SwiftData.ModelContext) -&gt; ()"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/SwiftBitesModelContainer.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "998D2DE6-C315-442F-883C-AD3AC6E8FEF4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftBites/SwiftData/SwiftBitesModelContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "isEmpty(context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EA8B1DA-780D-40B8-8608-9138EE706359"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftBites/SwiftData/SwiftBitesModelContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "isEmpty(context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

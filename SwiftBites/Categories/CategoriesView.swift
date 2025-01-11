@@ -67,7 +67,7 @@ struct CategoriesView: View {
     )
   }
 
-  private func list(for categories: [MockCategory]) -> some View {
+  private func list(for categories: [CategoryModel]) -> some View {
     ScrollView(.vertical) {
       if categories.isEmpty {
         noResults
