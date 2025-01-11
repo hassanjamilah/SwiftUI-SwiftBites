@@ -216,56 +216,9 @@ final class Storage {
     }
     
     // MARK: - Categories
-    
-    func addCategory(name: String) throws {
-        guard categories.contains(where: { $0.name == name }) == false else {
-            throw Error.categoryExists
-        }
-        categories.append(CategoryModel(name: name))
-    }
-    
-    //  func deleteCategory(id: CategoryModel.ID) {
-    //    categories.removeAll(where: { $0.id == id })
-    //    for (index, recipe) in recipes.enumerated() where recipe.category?.id == id {
-    //      recipes[index].category = nil
-    //    }
-    //  }
-    //
-    //  func updateCategory(id: CategoryModel.ID, name: String) throws {
-    //    guard categories.contains(where: { $0.name == name && $0.id != id }) == false else {
-    //      throw Error.categoryExists
-    //    }
-    //    guard let index = categories.firstIndex(where: { $0.id == id }) else {
-    //      return
-    //    }
-    //    categories[index].name = name
-    //    for (index, recipe) in recipes.enumerated() where recipe.category?.id == id {
-    //      recipes[index].category?.name = name
-    //    }
-    //  }
-    
-    // MARK: - Ingredients
-    
-    func addIngredient(name: String) throws {
-        guard ingredients.contains(where: { $0.name == name }) == false else {
-            throw Error.ingredientExists
-        }
-        ingredients.append(IngredientModel(name: name))
-    }
-    
-    func deleteIngredient(id: IngredientModel.ID) {
-        ingredients.removeAll(where: { $0.id == id })
-    }
-    
-    func updateIngredient(id: IngredientModel.ID, name: String) throws {
-        guard ingredients.contains(where: { $0.name == name && $0.id != id }) == false else {
-            throw Error.ingredientExists
-        }
-        guard let index = ingredients.firstIndex(where: { $0.id == id }) else {
-            return
-        }
-        ingredients[index].name = name
-    }
+
+
+
     
     // MARK: - Recipes
     
@@ -304,43 +257,6 @@ final class Storage {
             categories[cIndex].recipes.removeAll(where: { $0.id == id })
         }
     }
-    
-    //  func updateRecipe(
-    //    id: RecipeModel.ID,
-    //    name: String,
-    //    summary: String,
-    //    category: CategoryModel?,
-    //    serving: Int,
-    //    time: Int,
-    //    ingredients: [RecipeIngredientModel],
-    //    instructions: String,
-    //    imageData: Data?
-    //  ) throws {
-    //    guard recipes.contains(where: { $0.name == name && $0.id != id }) == false else {
-    //      throw Error.recipeExists
-    //    }
-    //    guard let index = recipes.firstIndex(where: { $0.id == id }) else {
-    //      return
-    //    }
-    //    let recipe = RecipeModel(
-    //      id: id,
-    //      name: name,
-    //      summary: summary,
-    //      category: category,
-    //      serving: serving,
-    //      time: time,
-    //      ingredients: ingredients,
-    //      instructions: instructions,
-    //      imageData: imageData
-    //    )
-    //    recipes[index] = recipe
-    //    for cIndex in categories.indices {
-    //      categories[cIndex].recipes.removeAll(where: { $0.id == id })
-    //    }
-    //    if let cIndex = categories.firstIndex(where: { $0.id == category?.id }) {
-    //      categories[cIndex].recipes.append(recipe)
-    //    }
-    //  }
 }
 
 struct StorageKey: EnvironmentKey {

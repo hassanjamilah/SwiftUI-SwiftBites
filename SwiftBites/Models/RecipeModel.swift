@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 final class RecipeModel: Identifiable, Hashable {
-    let id: UUID
+    var id: UUID
     @Attribute(.unique)
     var name: String
     var summary: String
@@ -27,7 +27,7 @@ final class RecipeModel: Identifiable, Hashable {
     var instructions: String
     var imageData: Data? = nil
     
-    init(name: String, summary: String, category: CategoryModel, serving: Int, time: Int, ingredients: [RecipeIngredientModel], instructions: String, imageData: Data? = nil) {
+    init(name: String, summary: String, category: CategoryModel? = nil, serving: Int, time: Int, ingredients: [RecipeIngredientModel], instructions: String, imageData: Data? = nil) {
         self.id = UUID()
         self.name = name
         self.summary = summary

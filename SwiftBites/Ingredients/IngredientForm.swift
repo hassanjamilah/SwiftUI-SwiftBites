@@ -67,7 +67,7 @@ struct IngredientForm: View {
   // MARK: - Data
 
   private func delete(ingredient: IngredientModel) {
-    storage.deleteIngredient(id: ingredient.id)
+//    storage.deleteIngredient(id: ingredient.id)
     dismiss()
   }
 
@@ -75,9 +75,11 @@ struct IngredientForm: View {
     do {
       switch mode {
       case .add:
-        try storage.addIngredient(name: name)
+          print("Add")
+//        try storage.addIngredient(name: name)
       case .edit(let ingredient):
-        try storage.updateIngredient(id: ingredient.id, name: name)
+          print("Update")
+//        try storage.updateIngredient(id: ingredient.id, name: name)
       }
       dismiss()
     } catch {
