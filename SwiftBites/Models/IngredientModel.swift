@@ -13,6 +13,9 @@ final class IngredientModel: Identifiable, Hashable {
     let id: UUID
     var name: String
     
+    @Relationship
+    var recipeIngredientModel: RecipeIngredientModel? = nil
+    
     init(name: String) {
         self.id = UUID()
         self.name = name

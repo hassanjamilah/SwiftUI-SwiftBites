@@ -8,10 +8,11 @@ struct IngredientsView: View {
   init(selection: Selection? = nil) {
     self.selection = selection
   }
-
-  @Environment(\.storage) private var storage
+  
   @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) var context
   @State private var query = ""
+    @State private var ingredients: [IngredientModel] = []
 
   // MARK: - Body
 
@@ -20,7 +21,7 @@ struct IngredientsView: View {
       content
         .navigationTitle("Ingredients")
         .toolbar {
-          if !storage.ingredients.isEmpty {
+          if ingredients.isEmpty {
             NavigationLink(value: IngredientForm.Mode.add) {
               Label("Add", systemImage: "plus")
             }
@@ -30,16 +31,19 @@ struct IngredientsView: View {
           IngredientForm(mode: mode)
         }
     }
+    .onAppear(perform: {
+        ingredients = SwiftBitesModelContainer.fetchAllIngredients(context: context)
+    })
   }
 
   // MARK: - Views
 
   @ViewBuilder
   private var content: some View {
-    if storage.ingredients.isEmpty {
+    if ingredients.isEmpty {
       empty
     } else {
-      list(for: storage.ingredients.filter {
+      list(for: ingredients.filter {
         if query.isEmpty {
           return true
         } else {
@@ -120,6 +124,6 @@ struct IngredientsView: View {
   // MARK: - Data
 
   private func delete(ingredient: IngredientModel) {
-//    storage.deleteIngredient(id: ingredient.id)
+      SwiftBitesModelContainer.deleteIngredient(ingredient: ingredient, context: context)
   }
 }

@@ -214,58 +214,8 @@ final class Storage {
             shawarma,
         ]
     }
+        
     
-    // MARK: - Categories
 
-
-
-    
-    // MARK: - Recipes
-    
-    //  func addRecipe(
-    //    name: String,
-    //    summary: String,
-    //    category: CategoryModel?,
-    //    serving: Int,
-    //    time: Int,
-    //    ingredients: [RecipeIngredientModel],
-    //    instructions: String,
-    //    imageData: Data?
-    //  ) throws {
-    //    guard recipes.contains(where: { $0.name == name }) == false else {
-    //      throw Error.recipeExists
-    //    }
-    //    let recipe = RecipeModel(
-    //      name: name,
-    //      summary: summary,
-    //      category: category,
-    //      serving: serving,
-    //      time: time,
-    //      ingredients: ingredients,
-    //      instructions: instructions,
-    //      imageData: imageData
-    //    )
-    //    recipes.append(recipe)
-    //    if let category, let index = categories.firstIndex(where: { $0.id == category.id }) {
-    //      categories[index].recipes.append(recipe)
-    //    }
-    //  }
-    
-    func deleteRecipe(id: RecipeModel.ID) {
-        recipes.removeAll(where: { $0.id == id })
-        for cIndex in categories.indices {
-            categories[cIndex].recipes.removeAll(where: { $0.id == id })
-        }
-    }
 }
 
-struct StorageKey: EnvironmentKey {
-    static let defaultValue = Storage()
-}
-
-extension EnvironmentValues {
-    var storage: Storage {
-        get { self[StorageKey.self] }
-        set { self[StorageKey.self] = newValue }
-    }
-}

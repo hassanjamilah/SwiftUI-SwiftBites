@@ -48,7 +48,9 @@ struct RecipeForm: View {
   @State private var isIngredientsPickerPresented =  false
   @State private var error: Error?
   @Environment(\.dismiss) private var dismiss
-  @Environment(\.storage) private var storage
+  
+    @Environment(\.modelContext) private var context
+    @State private var categories: [CategoryModel] = []
 
   // MARK: - Body
 
@@ -81,6 +83,9 @@ struct RecipeForm: View {
       }
     }
     .sheet(isPresented: $isIngredientsPickerPresented, content: ingredientPicker)
+    .onAppear(perform: {
+        categories = SwiftBitesModelContainer.fetchAllCategories(context: context)
+    })
   }
 
   // MARK: - Views
@@ -88,6 +93,7 @@ struct RecipeForm: View {
   private func ingredientPicker() -> some View {
     IngredientsView { selectedIngredient in
       let recipeIngredient = RecipeIngredientModel(ingredient: selectedIngredient, quantity: "")
+        context.insert(recipeIngredient)
       ingredients.append(recipeIngredient)
     }
   }
@@ -157,7 +163,7 @@ struct RecipeForm: View {
     Section {
       Picker("Category", selection: $categoryId) {
         Text("None").tag(nil as CategoryModel.ID?)
-        ForEach(storage.categories) { category in
+        ForEach(categories) { category in
           Text(category.name).tag(category.id as CategoryModel.ID?)
         }
       }
@@ -257,7 +263,8 @@ struct RecipeForm: View {
     guard case .edit(let recipe) = mode else {
       fatalError("Delete unavailable in add mode")
     }
-    storage.deleteRecipe(id: recipe.id)
+      
+    SwiftBitesModelContainer.deleteRecipe(recipe: recipe, context: context)
     dismiss()
   }
 
@@ -268,39 +275,34 @@ struct RecipeForm: View {
   }
 
   func save() {
-    let category = storage.categories.first(where: { $0.id == categoryId })
-
-    do {
+    let category = categories.first(where: { $0.id == categoryId })
+    
       switch mode {
       case .add:
-          print("")
-//        try storage.addRecipe(
-//          name: name,
-//          summary: summary,
-//          category: category,
-//          serving: serving,
-//          time: time,
-//          ingredients: ingredients,
-//          instructions: instructions,
-//          imageData: imageData
-//        )
+          SwiftBitesModelContainer.insertRecipe(
+            name: name,
+            summary: summary,
+            category: category,
+            serving: serving,
+            time: time,
+            ingredients: ingredients,
+            instructions: instructions,
+            imageData: imageData,
+            context: context
+          )
       case .edit(let recipe):
-          print("")
-//        try storage.updateRecipe(
-//          id: recipe.id,
-//          name: name,
-//          summary: summary,
-//          category: category,
-//          serving: serving,
-//          time: time,
-//          ingredients: ingredients,
-//          instructions: instructions,
-//          imageData: imageData
-//        )
+          SwiftBitesModelContainer.updateRecipe(oldRecipe: recipe,
+                                                name: name,
+                                                summary: summary,
+                                                category: category,
+                                                serving: serving,
+                                                time: time,
+                                                ingredients: ingredients,
+                                                instructions: instructions,
+                                                imageData: imageData,
+                                                context: context
+          )
       }
       dismiss()
-    } catch {
-      self.error = error
-    }
   }
 }

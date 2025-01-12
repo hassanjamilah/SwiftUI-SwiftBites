@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct CategoriesView: View {
-  @Environment(\.storage) private var storage
+    @Environment(\.modelContext) private var context
+    @State private var categories: [CategoryModel] = []
   @State private var query = ""
 
   // MARK: - Body
@@ -11,7 +12,7 @@ struct CategoriesView: View {
       content
         .navigationTitle("Categories")
         .toolbar {
-          if !storage.categories.isEmpty {
+          if !categories.isEmpty {
             NavigationLink(value: CategoryForm.Mode.add) {
               Label("Add", systemImage: "plus")
             }
@@ -24,16 +25,19 @@ struct CategoriesView: View {
           RecipeForm(mode: mode)
         }
     }
+    .onAppear(perform: {
+        categories = SwiftBitesModelContainer.fetchAllCategories(context: context)
+    })
   }
 
   // MARK: - Views
 
   @ViewBuilder
   private var content: some View {
-    if storage.categories.isEmpty {
+    if categories.isEmpty {
       empty
     } else {
-      list(for: storage.categories.filter {
+      list(for: categories.filter {
         if query.isEmpty {
           return true
         } else {

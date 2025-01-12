@@ -50,36 +50,6 @@
             endingLineNumber = "42"
             landmarkName = "insertInitialData(context:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "9893BB9A-366F-4C4E-9A28-E733EB4B41F8 - 2b43ab85b4bd83eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static SwiftBites.SwiftBitesModelContainer.insertInitialData(context: SwiftData.ModelContext) -&gt; ()"
-                  moduleName = "SwiftBites"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/SwiftBitesModelContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42">
-               </Location>
-               <Location
-                  uuid = "9893BB9A-366F-4C4E-9A28-E733EB4B41F8 - ceef29dd89e9a60e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftBites.IngredientModel) -&gt; () in static SwiftBites.SwiftBitesModelContainer.insertInitialData(context: SwiftData.ModelContext) -&gt; ()"
-                  moduleName = "SwiftBites"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/SwiftBitesModelContainer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -112,6 +82,142 @@
             endingLineNumber = "29"
             landmarkName = "isEmpty(context:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C0A145A-D5BD-425C-8111-0D84B58DDB10"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftBites/Recipes/RecipeForm.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "ingredientPicker()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3177F235-2B6C-4494-8AE4-BA8A72C544B4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftBites/Recipes/RecipeForm.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "ingredientPicker()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3177F235-2B6C-4494-8AE4-BA8A72C544B4 - 1c5fe28dd16d8ff6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftBites.IngredientModel) -&gt; () in SwiftBites.RecipeForm.ingredientPicker() -&gt; some"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/Recipes/RecipeForm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96">
+               </Location>
+               <Location
+                  uuid = "3177F235-2B6C-4494-8AE4-BA8A72C544B4 - 1c5fe28dd16d8fd9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (SwiftBites.IngredientModel) -&gt; () in SwiftBites.RecipeForm.ingredientPicker() -&gt; some"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/Recipes/RecipeForm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "755BD59E-746E-4603-9E5C-11389748E322"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftBites/Recipes/RecipeForm.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "ingredientsSection"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "755BD59E-746E-4603-9E5C-11389748E322 - 24a6ab86d4b8a621"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.ContentUnavailableView&lt;SwiftUI.Label&lt;SwiftUI.Text, SwiftUI.Image&gt;, SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;SwiftUI.Text&gt;)&gt;&gt; in SwiftBites.RecipeForm.ingredientsSection.getter : some"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/Recipes/RecipeForm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "199"
+                  endingLineNumber = "199">
+               </Location>
+               <Location
+                  uuid = "755BD59E-746E-4603-9E5C-11389748E322 - 764155fc88ead12c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (SwiftBites.RecipeIngredientModel) -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.layoutPriority(Swift.Double) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.layoutPriority(Swift.Double) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.ContentUnavailableView&lt;SwiftUI.Label&lt;SwiftUI.Text, SwiftUI.Image&gt;, SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;SwiftUI.Text&gt;)&gt;&gt; in SwiftBites.RecipeForm.ingredientsSection.getter : some"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/Recipes/RecipeForm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200">
+               </Location>
+               <Location
+                  uuid = "755BD59E-746E-4603-9E5C-11389748E322 - 24a6ab86d4b8a600"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.ContentUnavailableView&lt;SwiftUI.Label&lt;SwiftUI.Text, SwiftUI.Image&gt;, SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;SwiftUI.Text&gt;)&gt;&gt; in SwiftBites.RecipeForm.ingredientsSection.getter : some"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/Recipes/RecipeForm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200">
+               </Location>
+               <Location
+                  uuid = "755BD59E-746E-4603-9E5C-11389748E322 - 764155fc88ead153"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (SwiftBites.RecipeIngredientModel) -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.layoutPriority(Swift.Double) -&gt; some&gt;&gt;.0, SwiftUI.Spacer, &lt;&lt;opaque return type of SwiftUI.View.layoutPriority(Swift.Double) -&gt; some&gt;&gt;.0)&gt;&gt; in closure #1 () -&gt; SwiftUI._ConditionalContent&lt;SwiftUI.ContentUnavailableView&lt;SwiftUI.Label&lt;SwiftUI.Text, SwiftUI.Image&gt;, SwiftUI.Text, SwiftUI.Button&lt;SwiftUI.Text&gt;&gt;, SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Button&lt;SwiftUI.Text&gt;)&gt;&gt; in SwiftBites.RecipeForm.ingredientsSection.getter : some"
+                  moduleName = "SwiftBites"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hassanjamila/Hassan/iOS/013Learning/iOS-SwifUI-Swift-Data-Nanodegree%20/Projects/Project3-SwiftBites/SwiftBites_Starter/SwiftBites/Recipes/RecipeForm.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "201"
+                  endingLineNumber = "201">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

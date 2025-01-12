@@ -61,11 +61,21 @@ extension SwiftBitesModelContainer {
         }
         
     }
+    
+    static func fetchAllCategories(context: ModelContext) -> [CategoryModel] {
+        let descriptor = FetchDescriptor<CategoryModel>()
+        do {
+            let categories = try context.fetch(descriptor)
+            return categories
+        } catch {
+            return []
+        }
+    }
 }
 
 // MARK: - Ingredients operations
 extension SwiftBitesModelContainer {
-    static func insrtIngredient(name: String, context: ModelContext) {
+    static func insertIngredient(name: String, context: ModelContext) {
         let ingredientModel = IngredientModel(name: name)
         context.insert(ingredientModel)
     }
@@ -80,6 +90,16 @@ extension SwiftBitesModelContainer {
             try context.save()
         } catch {
             print("Faild to update ingredient")
+        }
+    }
+    
+    static func fetchAllIngredients(context: ModelContext) -> [IngredientModel] {
+        let descriptor = FetchDescriptor<IngredientModel>()
+        do {
+            let ingredients = try context.fetch(descriptor)
+            return ingredients
+        } catch {
+            return []
         }
     }
 }
@@ -126,17 +146,24 @@ extension SwiftBitesModelContainer {
         imageData: Data?,
         context: ModelContext
     ) {
-        let recipe = RecipeModel(
-            name: name,
-            summary: summary,
-            serving: serving,
-            time: time,
-            ingredients: ingredients,
-            instructions: instructions,
-            imageData: imageData
-        )
-        recipe.id = oldRecipe.id
-        recipe.category = category
+//        let recipe = RecipeModel(
+//            name: name,
+//            summary: summary,
+//            serving: serving,
+//            time: time,
+//            ingredients: ingredients,
+//            instructions: instructions,
+//            imageData: imageData
+//        )
+//        recipe.id = oldRecipe.id
+        oldRecipe.name = name
+        oldRecipe.summary = summary
+        oldRecipe.serving = serving
+        oldRecipe.time = time
+        oldRecipe.instructions = instructions
+        oldRecipe.imageData = imageData
+        oldRecipe.ingredients = ingredients
+        oldRecipe.category = category
         do {
             try context.save()
         } catch {
@@ -152,5 +179,20 @@ extension SwiftBitesModelContainer {
         } catch {
             return []
         }
+    }
+    
+    static func fetchRecipeByID(id: UUID, context: ModelContext) -> RecipeModel? {
+        let recipePredicate = #Predicate<RecipeModel> {
+            $0.id == id
+        }
+        
+        let descriptor = FetchDescriptor<RecipeModel>(predicate: recipePredicate)
+        do {
+            let recipes = try context.fetch(descriptor)
+            return recipes.first
+        } catch {
+            return nil
+        }
+        
     }
 }

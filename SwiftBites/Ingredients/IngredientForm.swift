@@ -23,9 +23,9 @@ struct IngredientForm: View {
   private let title: String
   @State private var name: String
   @State private var error: Error?
-  @Environment(\.storage) private var storage
   @Environment(\.dismiss) private var dismiss
   @FocusState private var isNameFocused: Bool
+    @Environment(\.modelContext) private var context
 
   // MARK: - Body
 
@@ -67,7 +67,7 @@ struct IngredientForm: View {
   // MARK: - Data
 
   private func delete(ingredient: IngredientModel) {
-//    storage.deleteIngredient(id: ingredient.id)
+    SwiftBitesModelContainer.deleteIngredient(ingredient: ingredient, context: context)
     dismiss()
   }
 
@@ -75,11 +75,9 @@ struct IngredientForm: View {
     do {
       switch mode {
       case .add:
-          print("Add")
-//        try storage.addIngredient(name: name)
+          SwiftBitesModelContainer.insertIngredient(name: name, context: context)
       case .edit(let ingredient):
-          print("Update")
-//        try storage.updateIngredient(id: ingredient.id, name: name)
+          SwiftBitesModelContainer.updateIngredient(ingredient: ingredient, newName: name, context: context)
       }
       dismiss()
     } catch {
