@@ -77,6 +77,21 @@ extension SwiftBitesModelContainer {
             return []
         }
     }
+    
+    static func fetchCategoryByName(searchValue: String, context: ModelContext) -> [CategoryModel] {
+        let predicate = #Predicate<CategoryModel> {
+            $0.name.localizedStandardContains(searchValue)
+        }
+        
+        let descriptor = FetchDescriptor(predicate: predicate)
+        do {
+            let categories = try context.fetch(descriptor)
+            return categories
+        } catch {
+            print("Unable to find the category \(error)")
+            return []
+        }
+    }
 }
 
 // MARK: - Ingredients operations

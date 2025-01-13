@@ -3,7 +3,7 @@ import SwiftUI
 struct CategoriesView: View {
     @Environment(\.modelContext) private var context
     @State private var categories: [CategoryModel] = []
-    @State private var query = ""
+    @State private var query: String = ""
     
     // MARK: - Body
     
@@ -41,13 +41,7 @@ struct CategoriesView: View {
         if categories.isEmpty {
             empty
         } else {
-            list(for: categories.filter {
-                if query.isEmpty {
-                    return true
-                } else {
-                    return $0.name.localizedStandardContains(query)
-                }
-            })
+            list(for: categories)
         }
     }
     
@@ -63,6 +57,12 @@ struct CategoriesView: View {
                 NavigationLink("Add Category", value: CategoryForm.Mode.add)
                     .buttonBorderShape(.roundedRectangle)
                     .buttonStyle(.borderedProminent)
+                Button(action: {
+                    query = ""
+                    fetchData()
+                }, label: {
+                    Text("Clear Search")
+                })
             }
         )
     }
@@ -86,9 +86,16 @@ struct CategoriesView: View {
             }
         }
         .searchable(text: $query)
+        .onChange(of: query) { _, value2 in
+            fetchData(searchValue: value2)
+        }
     }
     
-    private func fetchData() {
-        categories = SwiftBitesModelContainer.fetchAllCategories(context: context)
+    private func fetchData(searchValue: String? = nil) {
+        guard let searchValue = searchValue else {
+            categories = SwiftBitesModelContainer.fetchAllCategories(context: context)
+            return
+        }
+        categories = SwiftBitesModelContainer.fetchCategoryByName(searchValue: searchValue, context: context)
     }
 }
