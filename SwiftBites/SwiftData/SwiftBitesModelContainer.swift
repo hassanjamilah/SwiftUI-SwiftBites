@@ -123,6 +123,21 @@ extension SwiftBitesModelContainer {
             return []
         }
     }
+    
+    static func fetchIngredientByName(searchValue: String, context: ModelContext) -> [IngredientModel] {
+        let predicate = #Predicate<IngredientModel> {
+            $0.name.localizedStandardContains(searchValue)
+        }
+        let descriptor = FetchDescriptor(predicate: predicate)
+        do {
+            let ingredients = try context.fetch(descriptor)
+            return ingredients
+        } catch {
+            print("Unable to find ingredient \(error)")
+            return []
+        }
+        
+    }
 }
 
 // MARK: - Recipes operations

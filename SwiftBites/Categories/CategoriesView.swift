@@ -87,7 +87,7 @@ struct CategoriesView: View {
         }
         .searchable(text: $query)
         .onChange(of: query) { _, value2 in
-            fetchData(searchValue: value2)
+            fetchData(searchValue: value2.isEmpty ? nil : value2)
         }
     }
     

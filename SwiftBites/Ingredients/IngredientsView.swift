@@ -45,13 +45,7 @@ struct IngredientsView: View {
         if ingredients.isEmpty {
             empty
         } else {
-            list(for: ingredients.filter {
-                if query.isEmpty {
-                    return true
-                } else {
-                    return $0.name.localizedStandardContains(query)
-                }
-            })
+            list(for: ingredients)
         }
     }
     
@@ -67,6 +61,12 @@ struct IngredientsView: View {
                 NavigationLink("Add Ingredient", value: IngredientForm.Mode.add)
                     .buttonBorderShape(.roundedRectangle)
                     .buttonStyle(.borderedProminent)
+                Button(action: {
+                    query = ""
+                    fetchData()
+                }, label: {
+                    Text("Clear Search")
+                })
             }
         )
     }
@@ -97,6 +97,9 @@ struct IngredientsView: View {
         }
         .searchable(text: $query)
         .listStyle(.plain)
+        .onChange(of: query) { _, newValue in            
+            fetchData(searchValue: newValue.isEmpty ? nil : newValue)
+        }
     }
     
     @ViewBuilder
@@ -129,7 +132,11 @@ struct IngredientsView: View {
         SwiftBitesModelContainer.deleteIngredient(ingredient: ingredient, context: context)
     }
     
-    private func fetchData() {
-        ingredients = SwiftBitesModelContainer.fetchAllIngredients(context: context)
+    private func fetchData(searchValue: String? = nil) {
+        guard let searchValue = searchValue else {
+            ingredients = SwiftBitesModelContainer.fetchAllIngredients(context: context)
+            return
+        }
+        ingredients = SwiftBitesModelContainer.fetchIngredientByName(searchValue: searchValue, context: context)
     }
 }
