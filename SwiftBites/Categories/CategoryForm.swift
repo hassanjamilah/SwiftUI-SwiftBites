@@ -7,9 +7,11 @@ struct CategoryForm: View {
     }
     
     var mode: Mode
+    var onSave: () -> Void
     
-    init(mode: Mode) {
+    init(mode: Mode, onSave: @escaping () -> Void) {
         self.mode = mode
+        self.onSave = onSave
         switch mode {
         case .add:
             _name = .init(initialValue: "")
@@ -80,6 +82,7 @@ struct CategoryForm: View {
             case .edit(let category):
                 SwiftBitesModelContainer.updateCategory(category: category, newName: name, context: context)
             }
+            onSave()
             dismiss()
         } catch {
             self.error = error

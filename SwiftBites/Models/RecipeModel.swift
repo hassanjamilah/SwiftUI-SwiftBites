@@ -22,12 +22,13 @@ final class RecipeModel: Identifiable, Hashable {
     var time: Int
     
     @Relationship(deleteRule: .cascade)
-    var ingredients: [RecipeIngredientModel]
+    var ingredients: [RecipeIngredientModel]? = nil
     
     var instructions: String
     var imageData: Data? = nil
     
-    init(name: String, summary: String, category: CategoryModel? = nil, serving: Int, time: Int, ingredients: [RecipeIngredientModel], instructions: String, imageData: Data? = nil) {
+    // Try to save without ingredients first and than check what is the issue
+    init(name: String, summary: String, category: CategoryModel? = nil, serving: Int, time: Int, ingredients: [RecipeIngredientModel]? = nil, instructions: String, imageData: Data? = nil) {
         self.id = UUID()
         self.name = name
         self.summary = summary

@@ -23,6 +23,12 @@ class SwiftBitesModelContainer {
     }
     
     private static func isEmpty(context: ModelContext) -> Bool{
+        return false
+        
+        
+        
+        
+        
         let decriptor = FetchDescriptor<IngredientModel>()
         do {
             let ingredients = try context.fetch(decriptor)
@@ -112,7 +118,7 @@ extension SwiftBitesModelContainer {
         category: CategoryModel?,
         serving: Int,
         time: Int,
-        ingredients: [RecipeIngredientModel],
+        ingredients: [RecipeIngredientModel]? = nil,
         instructions: String,
         imageData: Data?,
         context: ModelContext
@@ -122,11 +128,11 @@ extension SwiftBitesModelContainer {
             summary: summary,
             serving: serving,
             time: time,
-            ingredients: ingredients,
             instructions: instructions,
             imageData: imageData
         )
         recipe.category = category
+        recipe.ingredients = ingredients
         context.insert(recipe)
     }
     

@@ -23,11 +23,13 @@ struct RecipesView: View {
                     }
                 }
                 .navigationDestination(for: RecipeForm.Mode.self) { mode in
-                    RecipeForm(mode: mode)
+                    RecipeForm(mode: mode) {
+                        fetchData()
+                    }
                 }
         }
         .onAppear(perform: {
-            recipes = SwiftBitesModelContainer.fetchRecipes(context: context)
+            fetchData()
         })
     }
     
@@ -110,5 +112,9 @@ struct RecipesView: View {
             }
         }
         .searchable(text: $query)
+    }
+    
+    private func fetchData() {
+        recipes = SwiftBitesModelContainer.fetchRecipes(context: context)
     }
 }
