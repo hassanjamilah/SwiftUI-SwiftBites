@@ -117,8 +117,6 @@ extension SwiftBitesModelContainer {
     }
     
     static func deleteIngredient(ingredient: IngredientModel, context: ModelContext) {
-
-        
         let fetchDescriptor = FetchDescriptor<RecipeIngredientModel>()
         do {
             let allRows = try context.fetch(fetchDescriptor).filter { value in
@@ -209,6 +207,18 @@ extension SwiftBitesModelContainer {
     }
     
     static func deleteRecipe(recipe: RecipeModel, context: ModelContext) {
+        let fetchDescriptor = FetchDescriptor<RecipeIngredientModel>()
+        do {
+            let allRows = try context.fetch(fetchDescriptor).filter {
+                $0.recipe?.id == recipe.id
+            }
+            allRows.forEach { row in
+                context.delete(row)
+            }
+            
+        } catch {
+            
+        }
         context.delete(recipe)
     }
     

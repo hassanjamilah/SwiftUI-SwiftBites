@@ -96,8 +96,8 @@ final class Storage {
             turmeric,
         ]
         
-        var italian = CategoryModel(name: "Italian")
-        var middleEastern = CategoryModel(name: "Middle Eastern")
+        let italian = CategoryModel(name: "Italian")
+        let middleEastern = CategoryModel(name: "Middle Eastern")
         
         let margherita = RecipeModel(
             name: "Classic Margherita Pizza",
