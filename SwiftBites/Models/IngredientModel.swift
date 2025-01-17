@@ -1,25 +1,16 @@
-//
-//  IngredientModel.swift
-//  SwiftBites
-//
-//  Created by Hassan Jamila on 5/1/25.
-//
-
 import Foundation
 import SwiftData
 
 @Model
-final class IngredientModel: Identifiable, Hashable {
-    let id: UUID
+final class IngredientModel {
+    var id: UUID
     var name: String
     
-    @Relationship
-    var recipeIngredientModel: RecipeIngredientModel? = nil
+    @Relationship(deleteRule: .cascade, inverse: \RecipeIngredientModel.ingredient)
+    var recipeIngredientModels: [RecipeIngredientModel]?
     
-    init(name: String) {
-        self.id = UUID()
+    init(id: UUID = UUID(), name: String) {
+        self.id = id
         self.name = name
     }
-    
-   
 }

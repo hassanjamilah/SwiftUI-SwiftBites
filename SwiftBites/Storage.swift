@@ -105,16 +105,15 @@ final class Storage {
             category: italian,
             serving: 4,
             time: 50,
-            ingredients: [
+            instructions: "Preheat oven, roll out dough, apply sauce, add cheese and basil, bake for 20 minutes.", 
+            imageData: UIImage(named: "margherita")?.pngData(), recipeIngredientModels: [
                 RecipeIngredientModel(ingredient: pizzaDough, quantity: "1 ball"),
                 RecipeIngredientModel(ingredient: tomatoSauce, quantity: "1/2 cup"),
                 RecipeIngredientModel(ingredient: mozzarellaCheese, quantity: "1 cup, shredded"),
                 RecipeIngredientModel(ingredient: freshBasilLeaves, quantity: "A handful"),
                 RecipeIngredientModel(ingredient: extraVirginOliveOil, quantity: "2 tablespoons"),
                 RecipeIngredientModel(ingredient: salt, quantity: "Pinch"),
-            ],
-            instructions: "Preheat oven, roll out dough, apply sauce, add cheese and basil, bake for 20 minutes.",
-            imageData: UIImage(named: "margherita")?.pngData()
+            ]
         )
         
         let spaghettiCarbonara = RecipeModel(
@@ -123,15 +122,15 @@ final class Storage {
             category: italian,
             serving: 4,
             time: 30,
-            ingredients: [
+            instructions: "Cook spaghetti. Fry pancetta until crisp. Whisk eggs and Parmesan, add to pasta with pancetta, and season with black pepper.",
+            imageData: UIImage(named: "spaghettiCarbonara")?.pngData(),
+            recipeIngredientModels: [
                 RecipeIngredientModel(ingredient: spaghetti, quantity: "400g"),
                 RecipeIngredientModel(ingredient: eggs, quantity: "4"),
                 RecipeIngredientModel(ingredient: parmesanCheese, quantity: "1 cup, grated"),
                 RecipeIngredientModel(ingredient: pancetta, quantity: "200g, diced"),
                 RecipeIngredientModel(ingredient: blackPepper, quantity: "To taste"),
-            ],
-            instructions: "Cook spaghetti. Fry pancetta until crisp. Whisk eggs and Parmesan, add to pasta with pancetta, and season with black pepper.",
-            imageData: UIImage(named: "spaghettiCarbonara")?.pngData()
+            ]
         )
         
         let hummus = RecipeModel(
@@ -140,7 +139,9 @@ final class Storage {
             category: middleEastern,
             serving: 6,
             time: 10,
-            ingredients: [
+            instructions: "Blend chickpeas, tahini, lemon juice, garlic, and spices. Adjust consistency with water. Garnish with olive oil, paprika, and parsley.",
+            imageData: UIImage(named: "hummus")?.pngData(),
+            recipeIngredientModels: [
                 RecipeIngredientModel(ingredient: chickpeas, quantity: "1 can (15 oz)"),
                 RecipeIngredientModel(ingredient: tahini, quantity: "1/4 cup"),
                 RecipeIngredientModel(ingredient: lemonJuice, quantity: "3 tablespoons"),
@@ -151,9 +152,8 @@ final class Storage {
                 RecipeIngredientModel(ingredient: water, quantity: "2-3 tablespoons"),
                 RecipeIngredientModel(ingredient: paprika, quantity: "For garnish"),
                 RecipeIngredientModel(ingredient: parsley, quantity: "For garnish"),
-            ],
-            instructions: "Blend chickpeas, tahini, lemon juice, garlic, and spices. Adjust consistency with water. Garnish with olive oil, paprika, and parsley.",
-            imageData: UIImage(named: "hummus")?.pngData()
+            ]
+            
         )
         
         let falafel = RecipeModel(
@@ -162,7 +162,9 @@ final class Storage {
             category: middleEastern,
             serving: 4,
             time: 60,
-            ingredients: [
+            instructions: "Soak chickpeas overnight. Blend with onions, garlic, herbs, and spices. Form into balls, add baking powder, and fry until golden.",
+            imageData: UIImage(named: "falafel")?.pngData(),
+            recipeIngredientModels: [
                 RecipeIngredientModel(ingredient: driedChickpeas, quantity: "1 cup"),
                 RecipeIngredientModel(ingredient: onions, quantity: "1 medium, chopped"),
                 RecipeIngredientModel(ingredient: garlic, quantity: "3 cloves, minced"),
@@ -172,9 +174,8 @@ final class Storage {
                 RecipeIngredientModel(ingredient: coriander, quantity: "1 tsp"),
                 RecipeIngredientModel(ingredient: salt, quantity: "1 tsp"),
                 RecipeIngredientModel(ingredient: bakingPowder, quantity: "1/2 tsp"),
-            ],
-            instructions: "Soak chickpeas overnight. Blend with onions, garlic, herbs, and spices. Form into balls, add baking powder, and fry until golden.",
-            imageData: UIImage(named: "falafel")?.pngData()
+            ]
+            
         )
         
         let shawarma = RecipeModel(
@@ -183,7 +184,9 @@ final class Storage {
             category: middleEastern,
             serving: 4,
             time: 120,
-            ingredients: [
+            instructions: "Marinate chicken with yogurt, spices, garlic, lemon juice, and olive oil. Roast until cooked. Serve with pita and sauces.",
+            imageData: UIImage(named: "chickenShawarma")?.pngData(),
+            recipeIngredientModels: [
                 RecipeIngredientModel(ingredient: chickenThighs, quantity: "1 kg, boneless"),
                 RecipeIngredientModel(ingredient: yogurt, quantity: "1 cup"),
                 RecipeIngredientModel(ingredient: garlic, quantity: "3 cloves, minced"),
@@ -196,9 +199,8 @@ final class Storage {
                 RecipeIngredientModel(ingredient: salt, quantity: "To taste"),
                 RecipeIngredientModel(ingredient: blackPepper, quantity: "To taste"),
                 RecipeIngredientModel(ingredient: extraVirginOliveOil, quantity: "2 tablespoons"),
-            ],
-            instructions: "Marinate chicken with yogurt, spices, garlic, lemon juice, and olive oil. Roast until cooked. Serve with pita and sauces.",
-            imageData: UIImage(named: "chickenShawarma")?.pngData()
+            ]
+            
         )
                 
         categories = [

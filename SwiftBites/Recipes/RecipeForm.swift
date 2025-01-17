@@ -30,7 +30,7 @@ struct RecipeForm: View {
             _serving = .init(initialValue: recipe.serving)
             _time = .init(initialValue: recipe.time)
             _instructions = .init(initialValue: recipe.instructions)
-            _ingredients = .init(initialValue: recipe.ingredients ?? [])
+            _ingredients = .init(initialValue: recipe.recipeIngredientModels ?? [])
             _categoryId = .init(initialValue: recipe.category?.id)
             _imageData = .init(initialValue: recipe.imageData)
             

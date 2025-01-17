@@ -70,6 +70,7 @@ struct IngredientForm: View {
     
     private func delete(ingredient: IngredientModel) {
         SwiftBitesModelContainer.deleteIngredient(ingredient: ingredient, context: context)
+        onSave()
         dismiss()
     }
     

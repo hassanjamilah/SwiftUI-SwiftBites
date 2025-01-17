@@ -2,13 +2,14 @@ import SwiftUI
 
 struct CategorySection: View {
   let category: CategoryModel
+    @State private var recipes: [RecipeModel] = []
 
   // MARK: - Body
 
   var body: some View {
     Section(
       content: {
-        if category.recipes.isEmpty {
+        if recipes.isEmpty {
           empty
         } else {
           list
@@ -26,6 +27,9 @@ struct CategorySection: View {
         .padding(.vertical, 10)
       }
     )
+    .onAppear(perform: {
+        recipes = category.recipes
+    })
   }
 
   // MARK: - Views
@@ -33,7 +37,7 @@ struct CategorySection: View {
   var list: some View {
     ScrollView(.horizontal) {
       LazyHStack(spacing: 0) {
-        ForEach(category.recipes, id: \.name) { recipe in
+        ForEach(recipes, id: \.name) { recipe in
           RecipeCell(recipe: recipe)
             .containerRelativeFrame(.horizontal, count: 12, span: 11, spacing: 0)
         }

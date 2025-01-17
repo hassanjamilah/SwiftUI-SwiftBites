@@ -23,12 +23,6 @@ class SwiftBitesModelContainer {
     }
     
     private static func isEmpty(context: ModelContext) -> Bool{
-        return false
-        
-        
-        
-        
-        
         let decriptor = FetchDescriptor<IngredientModel>()
         do {
             let ingredients = try context.fetch(decriptor)
@@ -101,8 +95,45 @@ extension SwiftBitesModelContainer {
         context.insert(ingredientModel)
     }
     
+    static func insertRecipeIngredient(ingredient: IngredientModel, quantity: String, context: ModelContext) {
+        let model = RecipeIngredientModel(ingredient: ingredient, quantity: "1 ")
+        context.insert(model)
+        
+    }
+    
+    
+    static func fetchAllModels(context: ModelContext) -> [RecipeIngredientModel] {
+        
+        
+        let descriptor = FetchDescriptor<RecipeIngredientModel>()
+        do {
+            let ingredients = try context.fetch(descriptor)
+            return ingredients
+        } catch {
+            print("Unable to find ingredient \(error)")
+            return []
+        }
+        
+    }
+    
     static func deleteIngredient(ingredient: IngredientModel, context: ModelContext) {
+
+        
+        let fetchDescriptor = FetchDescriptor<RecipeIngredientModel>()
+        do {
+            let allRows = try context.fetch(fetchDescriptor).filter { value in
+                value.ingredient.id == ingredient.id
+            }
+            allRows.forEach { row in
+                context.delete(row)
+            }
+            
+        } catch {
+            
+        }
+
         context.delete(ingredient)
+        
     }
     
     static func updateIngredient(ingredient: IngredientModel, newName: String, context: ModelContext) {
@@ -162,8 +193,19 @@ extension SwiftBitesModelContainer {
             imageData: imageData
         )
         recipe.category = category
-        recipe.ingredients = ingredients
+//        recipe.recipeIngredientModels = ingredients
+        
         context.insert(recipe)
+        ingredients?.forEach { value in
+            value.recipe = recipe
+        }
+        do {
+            try context.save()
+        } catch {
+            
+        }
+        
+        
     }
     
     static func deleteRecipe(recipe: RecipeModel, context: ModelContext) {
@@ -198,7 +240,7 @@ extension SwiftBitesModelContainer {
         oldRecipe.time = time
         oldRecipe.instructions = instructions
         oldRecipe.imageData = imageData
-        oldRecipe.ingredients = ingredients
+        oldRecipe.recipeIngredientModels = ingredients
         oldRecipe.category = category
         do {
             try context.save()

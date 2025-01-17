@@ -71,6 +71,7 @@ struct CategoryForm: View {
     
     private func delete(category: CategoryModel) {
         SwiftBitesModelContainer.deleteCategory(category: category, context: context)
+        onSave()
         dismiss()
     }
     

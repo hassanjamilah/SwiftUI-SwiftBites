@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct RecipesView: View {
     @Environment(\.modelContext) var context
@@ -9,7 +10,7 @@ struct RecipesView: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationStack {
+        NavigationStack {           
             content
                 .navigationTitle("Recipes")
                 .toolbar {
