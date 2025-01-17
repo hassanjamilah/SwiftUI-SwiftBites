@@ -273,4 +273,20 @@ extension SwiftBitesModelContainer {
         }
         
     }
+    
+    static func fetchRecipeByName(searchValue: String, context: ModelContext) -> [RecipeModel] {
+        let recipePredicate = #Predicate<RecipeModel> {
+            $0.name.localizedStandardContains(searchValue) ||
+            $0.summary.localizedStandardContains(searchValue)
+        }
+        
+        let descriptor = FetchDescriptor<RecipeModel>(predicate: recipePredicate)
+        do {
+            let recipes = try context.fetch(descriptor)
+            return recipes
+        } catch {
+            return []
+        }
+        
+    }
 }

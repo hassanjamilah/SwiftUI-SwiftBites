@@ -10,7 +10,7 @@ struct RecipesView: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationStack {           
+        NavigationStack {
             content
                 .navigationTitle("Recipes")
                 .toolbar {
@@ -66,13 +66,7 @@ struct RecipesView: View {
         if recipes.isEmpty {
             empty
         } else {
-            list(for: recipes.filter {
-                if query.isEmpty {
-                    return true
-                } else {
-                    return $0.name.localizedStandardContains(query) || $0.summary.localizedStandardContains(query)
-                }
-            }.sorted(using: sortOrder))
+            list(for: recipes.sorted(using: sortOrder))
         }
             
     }
@@ -90,6 +84,12 @@ struct RecipesView: View {
                 NavigationLink("Add Recipe", value: RecipeForm.Mode.add)
                     .buttonBorderShape(.roundedRectangle)
                     .buttonStyle(.borderedProminent)
+                Button(action: {
+                    query = ""
+                    fetchData()
+                }, label: {
+                    Text("Clear Search")
+                })
             }
         )
     }
@@ -113,9 +113,18 @@ struct RecipesView: View {
             }
         }
         .searchable(text: $query)
+        .onChange(of: query) { _, newValue in
+            fetchData(searchValue: newValue)
+        }
     }
     
-    private func fetchData() {
-        recipes = SwiftBitesModelContainer.fetchRecipes(context: context)
+    private func fetchData(searchValue: String? = nil) {
+        
+        guard let searchValue = searchValue else {
+            recipes = SwiftBitesModelContainer.fetchRecipes(context: context)
+            return
+        }
+        
+        recipes = SwiftBitesModelContainer.fetchRecipeByName(searchValue: searchValue, context: context)
     }
 }

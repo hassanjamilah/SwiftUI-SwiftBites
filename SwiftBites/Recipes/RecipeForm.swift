@@ -250,6 +250,7 @@ struct RecipeForm: View {
                 role: .destructive,
                 action: {
                     delete(recipe: recipe)
+                    onSave()
                 },
                 label: {
                     Text("Delete Recipe")
