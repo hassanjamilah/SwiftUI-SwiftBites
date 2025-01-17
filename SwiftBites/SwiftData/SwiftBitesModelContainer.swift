@@ -14,10 +14,6 @@ class SwiftBitesModelContainer {
         let schemas = Schema([CategoryModel.self, IngredientModel.self, RecipeIngredientModel.self, RecipeModel.self])
         let configuration = ModelConfiguration()
         let container = try! ModelContainer(for: schemas, configurations: configuration)
-        // Insert initial Data
-        if isEmpty(context: container.mainContext) {
-            insertInitialData(context: container.mainContext)
-        }
         
         return container
     }
@@ -29,14 +25,6 @@ class SwiftBitesModelContainer {
             return ingredients.isEmpty
         } catch {
             return true
-        }
-    }
-    
-    private static func insertInitialData(context: ModelContext) {
-        let storage = Storage()
-        storage.load()
-        storage.recipes.forEach { recipe in
-            context.insert(recipe)
         }
     }
 }
