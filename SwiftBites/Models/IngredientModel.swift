@@ -4,6 +4,8 @@ import SwiftData
 @Model
 final class IngredientModel {
     var id: UUID
+    
+    @Attribute(.unique)
     var name: String
     
     @Relationship(deleteRule: .cascade, inverse: \RecipeIngredientModel.ingredient)

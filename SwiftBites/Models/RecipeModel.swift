@@ -18,7 +18,7 @@ final class RecipeModel {
     var instructions: String
     var imageData: Data? = nil
     
-    @Relationship(deleteRule: .nullify)
+    @Relationship(deleteRule: .cascade)
     var recipeIngredientModels: [RecipeIngredientModel]?
     
     init(id: UUID = UUID(), name: String, summary: String, category: CategoryModel? = nil, serving: Int, time: Int, instructions: String, imageData: Data? = nil, recipeIngredientModels: [RecipeIngredientModel]? = nil) {

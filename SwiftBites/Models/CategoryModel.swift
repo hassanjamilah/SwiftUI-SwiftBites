@@ -11,8 +11,9 @@ import SwiftData
 @Model
 final class CategoryModel: Identifiable, Hashable {
     let id: UUID
+    @Attribute(.unique)
     var name: String
-    @Relationship
+    @Relationship(deleteRule: .nullify)
     var recipes: [RecipeModel]
     
     init(name: String, recipes: [RecipeModel] = []) {
